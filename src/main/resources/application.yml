@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: spring-security-boilerplate
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/${DB_NAME:authdb}}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:2004}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 1
+
+application:
+  jwt:
+    secret: ${APPLICATION_JWT_SECRET:6d5c4b3a2f1e0d9c8b7a6f5e4d3c2b1a0f9e8d7c6b5a4f3e2d1c0b9a8f7e6d5}
+    access-token-expiry: ${APPLICATION_JWT_ACCESS_TOKEN_EXPIRY:900000}
+    refresh-token-expiry: ${APPLICATION_JWT_REFRESH_TOKEN_EXPIRY:604800000}
+
+  rate-limit:
+    capacity: ${APPLICATION_RATE_LIMIT_CAPACITY:20}
+    refill-tokens: ${APPLICATION_RATE_LIMIT_REFILL_TOKENS:20}
+    refill-duration-seconds: ${APPLICATION_RATE_LIMIT_REFILL_DURATION_SECONDS:60}
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+logging:
+  level:
+    com.starter: DEBUG
+    org.springframework.security: INFO
