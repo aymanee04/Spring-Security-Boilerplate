@@ -28,8 +28,8 @@ public class RateLimitService {
     private final Supplier<BucketConfiguration> configSupplier;
 
     public RateLimitService(
-            @org.springframework.beans.factory.annotation.Value("${spring.redis.host:localhost}") String redisHost,
-            @org.springframework.beans.factory.annotation.Value("${spring.redis.port:6379}") int redisPort,
+            @org.springframework.beans.factory.annotation.Value("${spring.data.redis.host:localhost}") String redisHost,
+            @org.springframework.beans.factory.annotation.Value("${spring.data.redis.port:6379}") int redisPort,
             RateLimitConfig rateLimitConfig) {
         // Build a RedisURI from configured host/port so we get a structured URI instead of a plain string.
         RedisURI redisUri = RedisURI.builder().withHost(redisHost).withPort(redisPort).build();

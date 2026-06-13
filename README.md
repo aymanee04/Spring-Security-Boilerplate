@@ -1,7 +1,7 @@
 # Spring Boot 3 Auth Starter
 
 Production-grade authentication boilerplate: JWT + Redis + distributed rate limiting.  
-Java 21 · Spring Boot 3.2 · Spring Security 6 · jjwt 0.12 · Bucket4j · PostgreSQL
+Java 17 · Spring Boot 3.2 · Spring Security 6 · jjwt 0.12 · Bucket4j · PostgreSQL
 
 ---
 

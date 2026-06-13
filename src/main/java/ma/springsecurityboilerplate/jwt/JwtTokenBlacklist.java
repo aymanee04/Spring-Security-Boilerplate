@@ -22,6 +22,6 @@ public class JwtTokenBlacklist {
     }
 
     public boolean isBlacklisted(String jti) {
-        return Boolean.TRUE.equals(redisTemplate.hasKey(PREFIX + jti));
+        return redisTemplate.hasKey(PREFIX + jti);
     }
 }

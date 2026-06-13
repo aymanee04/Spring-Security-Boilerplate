@@ -39,7 +39,7 @@ services:
 
   backend:
     build:
-      context: src/main/java
+      context: .
       dockerfile: Dockerfile
     container_name: auth-backend
     restart: unless-stopped
